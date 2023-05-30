@@ -8,18 +8,18 @@ public class main_system{
         Scanner sc = new Scanner(System.in);
         
         boolean conds = true;
+        Choices choices = new Choices();
+
         while (conds) {
             System.out.println("\nENTER YOUR OPTION:");
             System.out.println("[1]: \tRegister training and add participant");
             System.out.println("[2]: \tSorting and display participant list");
             System.out.println("[3]: \tSearch participant");
             System.out.println("[4]: \tExit Program");
-            System.out.print("Please enter your choice (1-4): ");
             
             int choice = sc.nextInt();
-            sc.nextLine(); // consume the newline character
-            
-            choices choices = new choices();
+            sc.nextLine(); 
+
             switch (choice) {
 
                 case 1:
@@ -32,6 +32,7 @@ public class main_system{
                     break;
                 case 3:
                     //code start here
+                    choices.choice_3();
                     break;
                 case 4:
                     // exit program
@@ -46,4 +47,5 @@ public class main_system{
         
         sc.close(); // close scanner object
     }
+    
 }
