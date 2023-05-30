@@ -31,7 +31,7 @@ public class Choices {
         // Display the sorted participant list
         for (int i = 0; i < participantList.size(); i++) {
             Participant participant = participantList.get(i);
-            System.out.println("hi "+participant.getName());
+            System.out.println(participant.getName());
         }        
     }
 
