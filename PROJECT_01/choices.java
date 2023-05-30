@@ -33,5 +33,9 @@ public class Choices {
             Participant participant = participantList.get(i);
             System.out.println("hi "+participant.getName());
         }        
+    }
+
+    public void choice_3() {
+        System.out.println("Soory this section is not yet updated!");
     }    
 }
