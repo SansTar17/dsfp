@@ -36,6 +36,16 @@ public class Choices {
     }
 
     public void choice_3() {
-        System.out.println("Soory this section is not yet updated!");
+       System.out.println("Enter participant name to search:");
+                    String searchName = scanner.nextLine();
+                    Node<Participant> searchResult = LinkedList.searchParticipant(searchName);
+                    if (searchResult != null) {
+                        System.out.println("Participant found!");
+                        System.out.println("Name: " + searchResult.data.getName() + ", ID: " + searchResult.data.getId());
+                    } else {
+                        System.out.println("Participant not found.");
+                    }
+                    break;
+    }
     }    
 }
