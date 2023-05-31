@@ -4,7 +4,7 @@ import java.util.*;
 
 public class LinkedList<AnyType> {
    
-   private Node<AnyType> head;
+   Node<AnyType> head;
       
    public LinkedList(){
       head = null;
@@ -17,7 +17,7 @@ public class LinkedList<AnyType> {
    public void addFirst(AnyType item){
       head = new Node<AnyType>(item, head);
    }
-   
+    
    public AnyType getFirst(){
       if(head == null) throw new NoSuchElementException();
       return head.data;
@@ -196,13 +196,13 @@ public class LinkedList<AnyType> {
       return count;
    }
     
-   private static class Node<AnyType>{
+   protected static class Node<AnyType>{
 
-   private AnyType data;
+   protected AnyType data;
 
-   private Node<AnyType> next;
+   protected Node<AnyType> next;
 
-      public Node(AnyType data, Node<AnyType> next){
+      protected Node(AnyType data, Node<AnyType> next){
          this.data = data;
          this.next = next;
       }
