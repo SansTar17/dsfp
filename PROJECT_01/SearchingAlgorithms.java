@@ -9,7 +9,7 @@ public class SearchingAlgorithms {
         if (participantList.isEmpty()) {
             System.out.println("Participant list is empty.");
             return null;
-
+ 
         } else {
             Node<Participant> current = participantList.head;
 
