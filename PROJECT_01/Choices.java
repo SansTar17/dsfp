@@ -9,6 +9,90 @@ public class Choices{
     //Declare the global scanner
     private Scanner scanner = new Scanner(System.in); 
     
+    
+    //Register training and add participant
+    public void choice_1() {
+    
+        while (true) {
+            System.out.println("Please enter your name:");
+            String name = scanner.nextLine();
+    
+            if (isParticipantRegistered(name)) {
+                System.out.println("Participant already registered!");
+                continue; // Continue to the next iteration of the loop
+            }
+    
+            System.out.println("Your ID:");
+            int id = scanner.nextInt();
+            scanner.nextLine(); // Consume the newline character after reading the integer
+    
+            if (isIdRegistered(id)) {
+                System.out.println("ID already registered!");
+                continue; // Continue to the next iteration of the loop
+            }
+    
+            // Create a new Participant object
+            Participant participant = new Participant(name, id);
+    
+            participantList.addLast(participant);
+            
+            int userInput = 0;
+
+            while (true) {
+                System.out.println(
+                        "\nUser successfully registered, do you want to add another user?" +
+                                "\n[1]\tContinue\n[2]\tExit"
+                );
+                userInput = scanner.nextInt();
+                scanner.nextLine(); // Consume the newline character
+    
+                if (userInput == 1 || userInput == 2) {
+                    break; // Exit the inner loop
+                } else {
+                    System.out.println("Invalid input. Please enter either 1 or 2.");
+                }
+            }
+    
+            if (userInput == 2) {
+                break; // Exit the outer loop
+            }
+        }
+    }
+    
+
+    public void choice_2(){
+
+        MergeSort.mergeSort(participantList);
+    
+        // Display the sorted participant list
+        for (int i = 0; i < participantList.size(); i++) {
+            Participant participant = participantList.get(i);
+            System.out.println("Name: "+participant.getName()+"\t"+"Id:"+participant.getId());
+        }        
+    }
+
+    public void choice_3() {
+        
+       System.out.println("Enter participant name to search:");
+       String searchName = scanner.nextLine();
+
+       Participant searchResult = SearchingAlgorithms.searchParticipant(searchName, participantList);
+
+       if (searchResult != null) {
+           System.out.println("Participant found!");
+           System.out.println("Name: " + searchResult.getName() + " "+"ID:" + searchResult.getId());
+       } else {
+           System.out.println("Participant not found.");
+       }
+       
+    }
+
+    public boolean choice_4() {
+        // exit program
+        System.out.println("Exiting program...");
+        return false;
+    }
+
     private boolean isParticipantRegistered(String name) {
         for (int i = 0; i < participantList.size(); i++) {
             Participant participant = participantList.get(i);
@@ -29,81 +113,4 @@ public class Choices{
         return false;
     }
     
-       
-  
-    //Register training and add participant
-    public boolean choice_1(){
-
-        
-        
-        System.out.println("Please enter your name (or 'stop' to finish):");
-
-       while (true) {
-        
-        System.out.println("Your name:");
-        String name = scanner.nextLine();
-
-       
-        if (isParticipantRegistered(name)) {
-            System.out.println("Participant already registered!");
-            continue; // Continue to the next iteration of the loop
-        }//request to type again if name registered
-
-                    
-        if (name.equalsIgnoreCase("stop")) {
-            break; // Exit the loop if the user enters 'stop'
-        
-        }
-        
-        System.out.println("Your id:");
-        int id = scanner.nextInt();
-        scanner.nextLine(); // Consume the newline character after reading the integer
-
-        if (isIdRegistered(id)) {
-            System.out.println("ID already registered!");
-            continue;
-        }//request to type again if id registered
-             
-
-        // Create a new Participant object
-        Participant participant = new Participant(name,id);
-        
-        participantList.addLast(participant);
-
-    }
-    return false;
-                
-        
-}
-
-
-    
-
-    //Sorting and display participant list
-    public void choice_2(){
-
-        MergeSort.mergeSort(participantList);
-    
-        // Display the sorted participant list
-        for (int i = 0; i < participantList.size(); i++) {
-            Participant participant = participantList.get(i);
-            System.out.println("hi "+participant.getName()+" "+"id:"+participant.getId());
-        }        
-    }
-
-    public void choice_3() {
-        
-       System.out.println("Enter participant name to search:");
-       String searchName = scanner.nextLine();
-
-       Participant searchResult = SearchingAlgorithms.searchParticipant(searchName, participantList);
-
-       if (searchResult != null) {
-           System.out.println("Participant found!");
-           System.out.println("Name: " + searchResult.getName() + " "+"ID:" + searchResult.getId());
-       } else {
-           System.out.println("Participant not found.");
-       }
-       
-    }
 }    
