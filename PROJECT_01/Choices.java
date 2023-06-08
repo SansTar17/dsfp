@@ -23,8 +23,7 @@ public class Choices{
             }
     
             System.out.println("Your ID:");
-            int id = scanner.nextInt();
-            scanner.nextLine(); // Consume the newline character after reading the integer
+            String id = scanner.nextLine();
     
             if (isIdRegistered(id)) {
                 System.out.println("ID already registered!");
@@ -103,7 +102,7 @@ public class Choices{
         return false;
     }
 
-    private boolean isIdRegistered(int id) {
+    private boolean isIdRegistered(String id) {
         for (int i = 0; i < participantList.size(); i++) {
             Participant participant = participantList.get(i);
             if (participant.getId().equals(id)) {
