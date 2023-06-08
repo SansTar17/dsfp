@@ -4,9 +4,9 @@ package PROJECT_01;
 public class Participant {
 
     private String name;
-    private Integer Id;
+    private String Id;
 
-    public Participant(String name,Integer Id) {
+    public Participant(String name,String Id) {
         this.name = name;
         this.Id = Id;
         //training_course
@@ -16,7 +16,7 @@ public class Participant {
         return name;
     }
     
-    public Integer getId() {
+    public String getId() {
         return Id;
     }
 }
